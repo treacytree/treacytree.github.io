@@ -8,8 +8,11 @@ ul, ol {
 }
 
 //VARIABLES
-$header-height: 200px;
+$header-height: 170px;
 $footer-height: 40px;
+$wrap-outer-width: 960px;
+$wrap-inner-width: 640px;
+$wrap-min-width: 240px;
 $color1: #ccc;
 $color2: lightyellow;
 $color3: #fafafa;
@@ -25,6 +28,7 @@ body {
     box-sizing: border-box;
     width: 100%;
     font-family: $fontSerif;
+    min-width: $wrap-min-width;
 }
 
 header, footer {
@@ -35,6 +39,7 @@ header, footer {
     padding: 10px;
     width: 100%;
     font-family: $fontSans;
+    min-width: $wrap-min-width;
 }
 
 header {
@@ -43,10 +48,13 @@ header {
 
     h1 {
         display: inline-block;
+        margin-top: 0;
     }
 
     em {
         display: block;
+        max-width: 65vw;
+        margin: 0 auto;
     }
 }
 
@@ -63,7 +71,8 @@ main {
     padding-top: $header-height;
     padding-bottom: $footer-height;
     width: 100%;
-    max-width: 960px;
+    max-width: $wrap-outer-width;
+    min-width: $wrap-min-width;
     font-family: $fontSerif;
     line-height: 1em;
     font-size: 1em;
@@ -81,16 +90,21 @@ h1, h2, h3, h4, h5, h6 {
     font-family: $fontSans;
 }
 
+img {
+    max-width: 100%;
+}
+
 .wrap {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: $wrap-outer-width;
     position: relative;
+    min-width: $wrap-min-width;
 }
 
 #site-logo {
     width: 100px;
     position: absolute;
-    top: -10px;
+    top: 0px;
     left: 70px;
 }
 
@@ -131,7 +145,7 @@ button, button:focus {
 
 nav {
     padding: 10px;
-    max-width: 960px;
+    max-width: $wrap-inner-width;
     margin: 20px auto 0;
 
     ul {
@@ -239,15 +253,20 @@ audio {
 }
 
 @media only screen and (max-width: 1024px) {
+    body {
+        min-width: 240px;
+    }
+
     #site-logo {
-        width: 50px;
+        max-width: 80px;
+        width: 15vw;
         position: absolute;
-        top: -10px;
-        left: -10px;
+        left: 0px;
     }
 
     nav {
         font-size: .85em;
+        min-width: $wrap-min-width;
     }
 
     .photo-list {
@@ -259,7 +278,7 @@ audio {
             max-width: 320px;
 
             img {
-                max-width: 300px;
+                max-width: 100%;
                 min-height: 150px;
             }
         }
