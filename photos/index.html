@@ -1,0 +1,36 @@
+---
+title: photos
+---
+<html>
+	{% include head.html %}
+	<body>
+		{% include header.html %}
+		<main>
+		<h2>PHOTOS PAGE</h2>
+		<section class="photo-list"><ul class="photo-list">
+		<h3>List</h3>
+			{% for file in site.static_files %}
+				{% if file.path contains 'images' %}
+					<li>
+						<a href="{{ file.path }}" rel="post">{{ file.basename }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+		</ul></section>
+		
+		<section class="photo-gallery">
+		<h3>Gallery</h3>
+			{% for file in site.static_files %}
+				{% if file.path contains 'images' %}
+					<div class="photo-wrap">
+						<a href="{{ file.path }}" rel="post">
+						<img src="{{ file.path }}" alt="{{ file.basename }}" /></a>
+						<div class="photo-title">{{ file.basename }}</div>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</section>
+		</main>
+		{% include footer.html %}
+	</body>
+</html>

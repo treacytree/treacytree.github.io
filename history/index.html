@@ -1,0 +1,21 @@
+---
+title: history
+---
+<html>
+	{% include head.html %}
+	<body>
+		{% include header.html %}
+		<main>
+		<h2>HISTORY PAGE</h2>
+		<ul class="post-list">
+			{% for post in site.posts %}
+				<li>
+					<a href="{{ post.url }}" rel="post">{{ post.title }}</a>
+					{{ post.excerpt }}
+				</li>
+			{% endfor %}
+		</ul>
+		</main>
+		{% include footer.html %}
+	</body>
+</html>

@@ -1,0 +1,179 @@
+---
+---
+//RESET
+ul, ol {
+    //padding: 0;
+    //margin: 0;
+    li {}
+}
+
+//VARIABLES
+$header-height: 200px;
+$footer-height: 40px;
+$color1: beige;
+$color2: lightyellow;
+$color3: #fafafa;
+$colorBlack: #000;
+$colorWhite: #fff;
+$colorRed: red;
+
+//BASE
+body {
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+header, footer {
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: $color1;
+    padding: 10px;
+    width: 100%;
+}
+
+header {
+    position: fixed;
+    height: $header-height;
+
+    h1 {
+        display: inline-block;
+    }
+
+    em {
+        display: block;
+    }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: $footer-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-weight: bold;
+    display: block;
+}
+
+main {
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 10px;
+    padding-top: $header-height;
+    padding-bottom: $footer-height;
+    width: 100%;
+}
+
+article {
+    margin: 0 auto;
+    text-align: left;
+    background-color: $color3;
+    padding: 10px;
+}
+
+.byline {
+    display: block;
+    text-align: center;
+}
+
+a, a:focus, a:visited {
+    color: $colorBlack;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button, button:focus {
+    border: 1px solid $color1;
+    background-color: $colorRed;
+    color: $colorWhite;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.post-list {
+    li {
+        a {
+            text-decoration: underline;
+        }
+    }
+}
+
+nav {
+    padding: 10px;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        text-transform: capitalize;
+
+        li {
+            flex: 1 1 0;
+            position: relative;
+            cursor: pointer;
+
+            &.selected {
+                background-color: $color2;
+
+                ul {
+                    display: block;
+                    position: absolute;
+                    width: 50vw;
+                    text-align: left;
+                    background-color: $color2;
+                    padding: 10px;
+
+                    li {
+                        display: block;
+                        margin-bottom: 5px;
+
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+
+            ul {
+                display: none;
+            }
+        }
+    }
+}
+
+// PAGES
+// PHOTO PAGE
+.photo-gallery {
+    margin: 0 auto;
+    text-align: center;
+
+    img {
+        max-width: 400px;
+        min-height: 200px;
+        display: inline-block;
+        border: 1px solid black;
+        margin: 5px auto;
+    }
+}
+
+// AUDIO PAGE
+.audio-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+
+    li {
+        cursor: pointer;
+    }
+}
+
+audio {
+    cursor: pointer;
+}
