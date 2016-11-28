@@ -8,7 +8,9 @@ ul, ol {
 }
 
 //VARIABLES
-$header-height: 170px;
+$header-height1: 170px;
+$header-height2: 141px;
+$header-height3: 212px;
 $footer-height: 40px;
 $wrap-outer-width: 960px;
 $wrap-inner-width: 640px;
@@ -44,7 +46,7 @@ header, footer {
 
 header {
     position: fixed;
-    height: $header-height;
+    min-height: $header-height1;
 
     h1 {
         display: inline-block;
@@ -68,7 +70,7 @@ main {
     margin: 0 auto;
     box-sizing: border-box;
     padding: 10px;
-    padding-top: $header-height;
+    padding-top: $header-height1;
     padding-bottom: $footer-height;
     width: 100%;
     max-width: $wrap-outer-width;
@@ -102,7 +104,7 @@ img {
 }
 
 #site-logo {
-    width: 100px;
+    width: 80px;
     position: absolute;
     top: 0px;
     left: 70px;
@@ -258,15 +260,22 @@ audio {
     }
 
     #site-logo {
-        max-width: 80px;
+        max-width: 60px;
         width: 15vw;
-        position: absolute;
-        left: 0px;
     }
 
     nav {
-        font-size: .85em;
+        margin-top: 10px;
+        font-size: 1.25em;
         min-width: $wrap-min-width;
+
+        ul {
+            display: block;
+
+            li {
+                display: inline-block;
+            }
+        }
     }
 
     .photo-list {
@@ -282,5 +291,41 @@ audio {
                 min-height: 150px;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #site-logo {
+        left: 0px;
+        max-width: 40px;
+    }
+
+    header {
+        min-height: $header-height2;
+
+        h1 {
+            margin-bottom: 0;
+        }
+
+        em {
+            display: none;
+        }
+    }
+
+    nav {
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 588px) {
+    main {
+        padding-top: $header-height2;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    main {
+        // padding-top: $header-height3;
+   
     }
 }
