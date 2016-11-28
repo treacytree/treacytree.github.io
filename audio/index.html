@@ -7,17 +7,23 @@ title: audio
 		{% include header.html %}
 		<main>
 		<h2>AUDIO PAGE</h2>
-		<ul class="audio-list">
-			{% for file in site.static_files %}
-				{% if file.path contains 'audio-files' %}
-					<li>
-						<audio src="{{ file.path }}" controls="controls">
-							Your browser does not support the <code>audio</code> element.
-						</audio>
-					</li>
-				{% endif %}
-			{% endfor %}
-		</ul>
+		<section class="audio-gallery" id="estelle">
+			<h3>Estelle Magdalene Rasche Treacy</h3>
+			<div class="byline">recorded by Maurice Francis Treacy</div>
+			<ul class="audio-list">
+				{% for file in site.static_files %}
+					{% if file.path contains 'audio-files' %}
+						<li>
+							<audio src="{{ file.path }}" controls="controls">
+								Your browser does not support the <code>audio</code> element.
+							</audio>
+							<div class="audio-title">{{ file.basename }}</div>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</section>
+		
 		</main>
 		{% include footer.html %}
 	</body>

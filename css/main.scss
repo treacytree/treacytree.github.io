@@ -10,18 +10,21 @@ ul, ol {
 //VARIABLES
 $header-height: 200px;
 $footer-height: 40px;
-$color1: beige;
+$color1: #ccc;
 $color2: lightyellow;
 $color3: #fafafa;
 $colorBlack: #000;
 $colorWhite: #fff;
 $colorRed: red;
+$fontSerif: "Sumana", serif;
+$fontSans: "Open Sans", sans-serif;
 
 //BASE
 body {
     margin: 0 auto;
     box-sizing: border-box;
     width: 100%;
+    font-family: $fontSerif;
 }
 
 header, footer {
@@ -31,6 +34,7 @@ header, footer {
     background-color: $color1;
     padding: 10px;
     width: 100%;
+    font-family: $fontSans;
 }
 
 header {
@@ -52,12 +56,6 @@ footer {
     height: $footer-height;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    text-align: center;
-    font-weight: bold;
-    display: block;
-}
-
 main {
     margin: 0 auto;
     box-sizing: border-box;
@@ -65,6 +63,35 @@ main {
     padding-top: $header-height;
     padding-bottom: $footer-height;
     width: 100%;
+    max-width: 960px;
+    font-family: $fontSerif;
+    line-height: 1em;
+    font-size: 1em;
+}
+
+p {
+    line-height: 1em;
+    font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    font-family: $fontSans;
+}
+
+.wrap {
+    margin: 0 auto;
+    max-width: 960px;
+    position: relative;
+}
+
+#site-logo {
+    width: 100px;
+    position: absolute;
+    top: -10px;
+    left: 70px;
 }
 
 article {
@@ -104,6 +131,8 @@ button, button:focus {
 
 nav {
     padding: 10px;
+    max-width: 960px;
+    margin: 20px auto 0;
 
     ul {
         padding: 0;
@@ -117,6 +146,7 @@ nav {
             flex: 1 1 0;
             position: relative;
             cursor: pointer;
+            margin: 0 5px;
 
             &.selected {
                 background-color: $color2;
@@ -149,20 +179,43 @@ nav {
 
 // PAGES
 // PHOTO PAGE
-.photo-gallery {
+.photo-list {
     margin: 0 auto;
-    text-align: center;
+    width: 70%;
+    overflow: auto;
 
-    img {
-        max-width: 400px;
-        min-height: 200px;
-        display: inline-block;
-        border: 1px solid black;
+    li {
         margin: 5px auto;
     }
 }
 
+.photo-gallery {
+    margin: 0 auto;
+    text-align: center;
+    overflow: auto;
+
+    .photo-wrap {
+        display: inline-block;
+        max-width: 440px;
+
+        img {
+            max-width: 400px;
+            min-height: 200px;
+            max-height: 200px;
+            display: inline-block;
+            border: 1px solid black;
+            margin: 5px auto;
+        }
+    }
+}
+
 // AUDIO PAGE
+.audio-gallery {
+    .byline {
+        text-align: center;
+    }
+}
+
 .audio-list {
     list-style: none;
     padding: 0;
@@ -171,9 +224,44 @@ nav {
 
     li {
         cursor: pointer;
+        margin: 20px auto;
+        max-width: 300px;
+
+        .audio-title {
+            text-align: left;
+            padding-left: 30px;
+        }
     }
 }
 
 audio {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+    #site-logo {
+        width: 50px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+    }
+
+    nav {
+        font-size: .85em;
+    }
+
+    .photo-list {
+        width: 100%;
+    }
+
+    .photo-gallery {
+        .photo-wrap {
+            max-width: 320px;
+
+            img {
+                max-width: 300px;
+                min-height: 150px;
+            }
+        }
+    }
 }
